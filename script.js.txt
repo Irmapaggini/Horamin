@@ -1,0 +1,19 @@
+const horametroInput = document.getElementById('horametro');
+const minutiInput = document.getElementById('minuti');
+const risultato = document.getElementById('risultato');
+
+horametroInput.addEventListener('input', aggiornaRisultato);
+minutiInput.addEventListener('input', aggiornaRisultato);
+
+function aggiornaRisultato() {
+const horametro = parseFloat(horametroInput.value.replace(",", ".")) || 0;
+const minuti = parseInt(minutiInput.value) || 0;
+const finale = horametro + (minuti / 60);
+risultato.textContent = finale.toFixed(2);
+}
+
+function resetCampi() {
+horametroInput.value = '';
+minutiInput.value = '';
+risultato.textContent = '0.00';
+}
